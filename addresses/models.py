@@ -8,6 +8,6 @@ class Address(models.Model):
     number = models.CharField('Número', max_length=4, null=False, blank=False)
     neighbourhood = models.CharField('Bairro', max_length=64, null=False, blank=False)
     state = models.CharField('Estado', max_length=64, choices=STATES, null=False, blank=False)
-    complement = models.CharField('Complemento', max_length=64)
-    description = models.CharField('Descrição', max_length=64)
+    complement = models.CharField('Complemento', max_length=64, null=True, blank=True)
+    description = models.CharField('Descrição', max_length=64, null=True, blank=True)
     city = models.CharField('Cidade', max_length=64, null=False, blank=False)
