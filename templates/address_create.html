@@ -1,0 +1,16 @@
+<!-- Mesmo extendendo 'base.html', ainda é necessário fazer os imports
+do bootstrap -->
+{% extends 'base.html' %}
+
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{% bootstrap_messages %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form layout='inline' %}
+    <button type="submit" class="btn btn-primary">Criar</button>
+  </form>
+{% endblock content %}
