@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.views.generic.list import ListView
 
-# Create your views here.
+from .models import Address
+
+
+class AddressListView(ListView):
+    model = Address
+    template_name = 'address_list.html'
+    context_object_name = 'addresses'
+
