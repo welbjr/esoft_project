@@ -1,6 +1,7 @@
 <!-- Mesmo extendendo 'base.html', ainda é necessário fazer os imports
 do bootstrap -->
 {% extends 'base.html' %}
+{% load static %}
 
 {% load bootstrap4 %}
 {% bootstrap_css %}
@@ -12,5 +13,7 @@ do bootstrap -->
     {% csrf_token %}
     {% bootstrap_form form layout='inline' %}
     <button type="submit" class="btn btn-primary">Criar</button>
+    <button class="btn btn-secondary" onclick="completeForm()">script</button>
   </form>
+  <script src="{% static 'js/completeForm.js' %}"></script>
 {% endblock content %}
