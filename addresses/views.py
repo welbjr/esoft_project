@@ -1,5 +1,5 @@
 from django.shortcuts import redirect
-from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 
 from .forms import AddressForm
@@ -12,7 +12,9 @@ class AddressListView(ListView):
     context_object_name = 'addresses'
 
 
-class AddressFormView(FormView):
-    template_name = 'address_create.html'
+class AddressCreateView(CreateView):
+    model = Address
     form_class = AddressForm
+    template_name = 'address_create.html'
     success_url = '/'
+

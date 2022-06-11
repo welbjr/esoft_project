@@ -1,12 +1,19 @@
-from django import forms
+from django.forms import ModelForm
+
+from .models import Address
 
 
-class AddressForm(forms.Form):
-    postal_code = forms.CharField(label='CEP', max_length=8)
-    address = forms.CharField(label='Endereço', max_length=64)
-    number = forms.CharField(label='Número', max_length=4)
-    neighbourhood = forms.CharField(label='Bairro', max_length=64)
-    state = forms.CharField(label='Estado', max_length=64)
-    complement = forms.CharField(label='Complemento', max_length=64, required=False)
-    description = forms.CharField(label='Descrição', max_length=64, required=False)
-    city = forms.CharField(label='Cidade', max_length=64)
+class AddressForm(ModelForm):
+    class Meta:
+        model = Address
+        fields = ['postal_code', 'address', 'number', 'neighbourhood', 'state', 'complement', 'description', 'city']
+        labels = {
+            'postal_code': 'CEP',
+            'address': 'Endereço',
+            'number': 'Número',
+            'neighbourhood': 'Bairro',
+            'state': 'Estado',
+            'complement': 'Complemento',
+            'description': 'Descrição',
+            'city': 'Cidade'
+        }
