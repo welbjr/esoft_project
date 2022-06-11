@@ -1,3 +1,4 @@
+from django.shortcuts import resolve_url
 from django.test import TestCase
 
 from .models import Address
@@ -26,3 +27,26 @@ class AddressTestCase(TestCase):
         self.assertEqual(address.complement, '')
         self.assertEqual(address.description, '')
         self.assertEqual(address.city, 'Varginha')
+    
+    def test_address_creation_template(self):
+        response = self.client.get(resolve_url('address_create'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'address_create.html')
+
+    def test_address_list_template(self):
+        response = self.client.get(resolve_url('address_list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'address_list.html')
+
+    def test_address_form(self):
+        response = self.client.post(resolve_url('address_create'), {
+            'postal_code': '87654321',
+            'address': 'Outra Rua',
+            'number': '2',
+            'neighbourhood': 'Centro',
+            'state': 'MG',
+            'complement': 'Test',
+            'description': 'Test',
+            'city': 'Varginha'
+        })
+        self.assertEqual(response.status_code, 302)
