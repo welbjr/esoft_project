@@ -50,3 +50,6 @@ class AddressTestCase(TestCase):
             'city': 'Varginha'
         })
         self.assertEqual(response.status_code, 302)
+        address2 = Address.objects.get(address='Outra Rua')
+        self.assertEqual(address2.postal_code, '87654321')
+        self.assertEqual(address2.address, 'Outra Rua')
