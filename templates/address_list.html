@@ -6,7 +6,6 @@
   <img src="{% static 'img/cidade.jpg' %}" class="img-fluid" alt="Responsive image">
 
   <div class="container">
-
     <!-- Botão para criar novo endereço -->
     <a 
     type="button" 
@@ -39,8 +38,8 @@
         <td>{{ address.number }}</td>
         <td>{{ address.neighbourhood }}</td>
         <td>{{ address.state }}</td>
-        <td>{{ address.complement }}</td>
-        <td>{{ address.description }}</td>
+        <td>{{ address.complement|default_if_none:"" }}</td>
+        <td>{{ address.description|default_if_none:"" }}</td>
         <td>{{ address.city }}</td>
       </tr>
       {% endfor %}
