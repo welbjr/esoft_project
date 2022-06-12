@@ -9,6 +9,7 @@ do bootstrap -->
 {% bootstrap_messages %}
 
 {% block content %}
+<div class="container">
   <div class="alert alert-danger hidden" role="alert" id="cep-alert">
     CEP inválido.
   </div>
@@ -19,4 +20,5 @@ do bootstrap -->
     <button type="submit" class="btn btn-primary">Criar</button>
   </form>
   <script type="text/javascript" src="{% static 'js/completeForm.js' %}"></script>
+</div>
 {% endblock content %}

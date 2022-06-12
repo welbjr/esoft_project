@@ -1,6 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+  <!-- Imagem -->
+  <img src="{% static 'img/cidade.jpg' %}" class="img-fluid" alt="Responsive image">
+
+  <div class="container">
+
+    <!-- Botão para criar novo endereço -->
+    <a 
+    type="button" 
+    class="btn btn-outline-primary btn-lg btn-block" 
+    href="{% url 'address_create'%}"
+    >
+    Novo Endereço
+  </a>
+  <br>
+  
+  <!-- Tabela de endereços -->
   <table class="table">
     <thead>
       <tr>
@@ -16,17 +33,18 @@
     </thead>
     <tbody>
       {% for address in addresses %}
-        <tr>
-          <th scope="row">{{ address.postal_code }}</th>
-          <td>{{ address.address }}</td>
-          <td>{{ address.number }}</td>
-          <td>{{ address.neighbourhood }}</td>
-          <td>{{ address.state }}</td>
-          <td>{{ address.complement }}</td>
-          <td>{{ address.description }}</td>
-          <td>{{ address.city }}</td>
-        </tr>
+      <tr>
+        <th scope="row">{{ address.postal_code }}</th>
+        <td>{{ address.address }}</td>
+        <td>{{ address.number }}</td>
+        <td>{{ address.neighbourhood }}</td>
+        <td>{{ address.state }}</td>
+        <td>{{ address.complement }}</td>
+        <td>{{ address.description }}</td>
+        <td>{{ address.city }}</td>
+      </tr>
       {% endfor %}
     </tbody>
   </table>
+</div>
 {% endblock content %}

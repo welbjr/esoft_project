@@ -12,7 +12,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
+  <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+
     <a class="navbar-brand" href="{% url 'address_list' %}">Esoft</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,9 +28,7 @@
     </div>
   </nav>
 
-  <div class="container">
-    {% block content %}
-    {% endblock content %}
-  </div>
+  {% block content %}
+  {% endblock content %}
 </body>
 </html>
