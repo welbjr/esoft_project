@@ -6,16 +6,18 @@
   {% bootstrap_css %}
   {% bootstrap_javascript jquery='full' %}
   {% bootstrap_messages %}
+  <link rel="icon" href="{% static 'favicon.png' %}">
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
   <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light"> -->
   <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
 
-    <a class="navbar-brand" href="{% url 'address_list' %}">Esoft</a>
+    <a class="navbar-brand" href="{% url 'address_list' %}">Endereços</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
