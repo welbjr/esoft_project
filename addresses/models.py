@@ -3,7 +3,7 @@ from utils.states_choices import STATES
 
 
 class Address(models.Model):
-    postal_code = models.CharField('CEP', max_length=8)
+    postal_code = models.CharField('CEP', max_length=8, unique=True)
     address = models.CharField('Endereço', max_length=64)
     number = models.CharField('Número', max_length=4)
     neighbourhood = models.CharField('Bairro', max_length=64)
